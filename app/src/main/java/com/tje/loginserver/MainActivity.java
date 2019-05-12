@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.tje.loginserver.databinding.ActivityMainBinding;
@@ -107,6 +108,9 @@ public class MainActivity extends BaseActivity {
         String savedUserId = ContextUtil.getUserInputId(mContext);
 
         act.loginIdEdt.setText(savedUserId);
+
+        String savedToken = ContextUtil.getUserToken(mContext);
+        Log.d("저장된토큰값", String.format("토큰값 : %s", savedToken));
 
     }
 
