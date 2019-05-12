@@ -57,6 +57,19 @@ public class MainActivity extends BaseActivity {
 
                                     if (code == 200) {
 //                                        로그인 성공!
+
+                                        if (act.autoLoginCheckBox.isChecked()) {
+//                                            자동로그인을 하려고 한다. 사용자가 표시
+//                                            로그인 성공 토큰값을 SharedPreference 에 저장
+
+                                            JSONObject data = json.getJSONObject("data");
+
+                                            String token = data.getString("token");
+
+                                            ContextUtil.setUserToken(mContext, token);
+
+                                        }
+
                                     }
                                     else {
 //                                        로그인 실패. 왜 실패했는지 AlertDialog
