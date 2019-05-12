@@ -1,5 +1,6 @@
 package com.tje.loginserver;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -70,6 +71,11 @@ public class MainActivity extends BaseActivity {
                                             ContextUtil.setUserToken(mContext, token);
 
                                         }
+
+                                        Intent intent = new Intent(mContext, Main2Activity.class);
+                                        intent.putExtra("userToken", token);
+                                        startActivity(intent);
+                                        finish();
 
                                     }
                                     else {
