@@ -1,6 +1,7 @@
 package com.tje.loginserver;
 
 import android.databinding.DataBindingUtil;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import com.tje.loginserver.databinding.ActivityMainBinding;
 import com.tje.loginserver.utils.ConnectServer;
 import com.tje.loginserver.utils.ContextUtil;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainActivity extends BaseActivity {
@@ -46,7 +48,32 @@ public class MainActivity extends BaseActivity {
                     @Override
                     public void onResponse(JSONObject json) {
 
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
 
+                                try {
+                                    int code = json.getInt("code");
+
+                                    if (code == 200) {
+//                                        로그인 성공!
+                                    }
+                                    else {
+//                                        로그인 실패. 왜 실패했는지 AlertDialog
+
+                                        AlertDialog.Builder alert = new AlertDialog.Builder(mContext);
+                                        alert.setTitle("로그인 실패 알림");
+                                        alert.setMessage(json.getString("message"));
+                                        alert.setPositiveButton("확인", null);
+                                        alert.show();
+                                    }
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                            }
+                        });
 
                     }
                 });

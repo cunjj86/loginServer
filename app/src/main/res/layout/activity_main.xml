@@ -55,6 +55,27 @@
                 android:layout_marginTop="5dp"
                 android:inputType="textPassword"/>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/autoLoginCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="자동 로그인"/>
+
+                <TextView
+                    android:id="@+id/forgotPwTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="right|center_vertical"
+                    android:textSize="17sp"
+                    android:text="Forgot password"/>
+
+            </LinearLayout>
+
             <Button
                 android:id="@+id/loginBtn"
                 android:layout_width="match_parent"
